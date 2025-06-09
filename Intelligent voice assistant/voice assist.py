@@ -1,13 +1,17 @@
 import speech_recognition as sr 
 from GoogleNews import GoogleNews
 import pyttsx3
-import webbrowser
+
 import subprocess
 import pyttsx3 as tts
 import pywhatkit
-import sumy
 
+import certifi
+import requests
 
+requests.packages.urllib3.util.ssl_.DEFAULT_CA_BUNDLE_PATH = certifi.where()
+
+# Voice recognition and speech engine
 
 
 speaker = tts.init()
@@ -113,15 +117,16 @@ def cmd():
         print(*a[1:5],sep=',')
     
     if 'chrome' in text:
-        engine.say('okay chrome is opening now')
+        engine.say('okay loosu ippo varuthu paru')
         engine.runAndWait()
-        program= "C:\Program Files\Google\Chrome\Application\chrome.exe"
+        program = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
+
         subprocess.Popen([program])
 
    
     
     if 'play' in text:
-         engine.say(" the video you are searching for")
+         engine.say(" okay loosu ippo varuthu paru")
          engine.runAndWait()
          pywhatkit.playonyt(text)
          
